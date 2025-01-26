@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from './context/AuthContext';
+import Header from './components/Header';
+import Home from './pages/Home';
+import About from './pages/About';
+import AdminPanel from './components/AdminPanel';
+import GalleryPage from './pages/GalleryPage';
+import Contact from './pages/Contact';
+import Login from './pages/Login';
 
-function App() {
+const App = () => {
+  const { isAuthenticated } = useContext(AuthContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Welcome to The Givers Dream</h1>
-        <p>
-        Welcome to GiversDream.org, a nonprofit organization dedicated to empowering young girls and transforming lives through education, support, and mentorship.        </p>
-        <a
-          className="App-link"
-          href="https://github.com/thegiversdream/the-givers-dream?tab=readme-ov-file#the-givers-dream"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn More
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route
+          path="/admin"
+          element={isAuthenticated ? <AdminPanel /> : <Navigate to="/login" />}
+        />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
