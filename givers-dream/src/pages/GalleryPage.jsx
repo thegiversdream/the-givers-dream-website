@@ -4,7 +4,7 @@ const GalleryPage = () => {
   const images = [
     process.env.PUBLIC_URL + '/assets/images/image-1.jpeg',
     process.env.PUBLIC_URL + '/assets/images/image-2.jpeg',
-    process.env.PUBLIC_URL + '/assets/images/image-3.jpeg',
+    // process.env.PUBLIC_URL + '/assets/images/image-3.jpeg',
   ];
 
   return (
