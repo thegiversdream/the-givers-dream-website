@@ -23,6 +23,7 @@ import MKBox from "components/MKBox";
 // Material Kit 2 React examples
 import DefaultInfoCard from "examples/Cards/InfoCards/DefaultInfoCard";
 import CenteredBlogCard from "examples/Cards/BlogCards/CenteredBlogCard";
+import information_image from "assets/images/schools/9.jpeg";
 
 function Information() {
   return (
@@ -34,36 +35,36 @@ function Information() {
               <Grid item xs={12} md={6}>
                 <MKBox mb={5}>
                   <DefaultInfoCard
-                    icon="public"
-                    title="Fully integrated"
-                    description="We get insulted by others, lose trust for those We get back freezes"
+                    icon="volunteer_activism"
+                    title="Empowering Young Girls"
+                    description="We provide essential support, including sanitary pads, mentorship, and educational resources, to help young girls thrive."
                   />
                 </MKBox>
               </Grid>
               <Grid item xs={12} md={6}>
                 <MKBox mb={5}>
                   <DefaultInfoCard
-                    icon="payments"
-                    title="Payments functionality"
-                    description="We get insulted by others, lose trust for those We get back freezes"
+                    icon="school"
+                    title="Access to Sanitary Care"
+                    description="We distribute sanitary pads to schools, ensuring that young girls have the resources they need to stay in school with confidence."
                   />
                 </MKBox>
               </Grid>
               <Grid item xs={12} md={6}>
                 <MKBox mb={{ xs: 5, md: 0 }}>
                   <DefaultInfoCard
-                    icon="apps"
-                    title="Prebuilt components"
-                    description="We get insulted by others, lose trust for those We get back freezes"
+                    icon="favorite"
+                    title="Health & Well-being"
+                    description="Our programs ensure access to basic hygiene, nutrition, and mental well-being support, fostering confidence and dignity."
                   />
                 </MKBox>
               </Grid>
               <Grid item xs={12} md={6}>
                 <MKBox mb={{ xs: 5, md: 0 }}>
                   <DefaultInfoCard
-                    icon="3p"
-                    title="Improved platform"
-                    description="We get insulted by others, lose trust for those We get back freezes"
+                    icon="groups"
+                    title="Community & Advocacy"
+                    description="We advocate for gender equality, raise awareness, and collaborate with local communities to create lasting impact."
                   />
                 </MKBox>
               </Grid>
@@ -71,14 +72,14 @@ function Information() {
           </Grid>
           <Grid item xs={12} lg={4} sx={{ ml: "auto", mt: { xs: 3, lg: 0 } }}>
             <CenteredBlogCard
-              image="https://images.unsplash.com/photo-1544717302-de2939b7ef71?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-              title="Get insights on Search"
-              description="Website visitors today demand a frictionless user expericence — especially when using search. Because of the hight standards."
+              image={information_image}
+              title="Creating a Brighter Future"
+              description="Every girl deserves equal opportunities. Join us in breaking barriers and building a future where young women can dream, learn, and lead."
               action={{
                 type: "internal",
                 route: "pages/company/about-us",
                 color: "info",
-                label: "find out more",
+                label: "Learn more",
               }}
             />
           </Grid>

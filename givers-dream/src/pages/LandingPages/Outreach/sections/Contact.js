@@ -13,6 +13,10 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
+import React, { useRef, useEffect, useState } from "react";
+import emailjs from "emailjs-com";
+import ReCAPTCHA from "react-google-recaptcha";
+
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -27,6 +31,46 @@ import MKTypography from "components/MKTypography";
 import bgImage from "assets/images/examples/blog2.jpg";
 
 function Contact() {
+  // Create a ref to access the form element
+  const formRef = useRef();
+  const [captchaToken, setCaptchaToken] = useState(null);
+
+  // Handle the reCAPTCHA token
+  const handleCaptchaChange = (token) => {
+    setCaptchaToken(token);
+  };
+  useEffect(() => {
+    // Initialize EmailJS with your Public Key (User ID)
+    emailjs.init("8vw14hXRqqqVCT9k_"); // Replace with your actual Public Key
+  }, []);
+
+  // Function to handle form submission
+  const sendEmail = (e) => {
+    e.preventDefault(); // Prevent default form submission
+    // Ensure the user completes the CAPTCHA
+    if (!captchaToken) {
+      alert("Please complete the CAPTCHA verification.");
+      return;
+    }
+    emailjs
+      .sendForm(
+        "service_zmoofas", // Use environment variable
+        "template_i7gxr3x", // Use environment variable
+        formRef.current
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert("Message sent successfully!");
+          formRef.current.reset(); // Optionally reset the form after submission
+          setCaptchaToken(null); // Reset CAPTCHA token after successful submission
+        },
+        (error) => {
+          console.error(error.text);
+          alert("Failed to send message. Please try again.");
+        }
+      );
+  };
   return (
     <MKBox component="section" py={{ xs: 0, lg: 6 }}>
       <Container>
@@ -84,7 +128,7 @@ function Contact() {
                         ml={2}
                         fontWeight="regular"
                       >
-                        (+40) 772 100 200
+                        (+27) 81-572-9555
                       </MKTypography>
                     </MKBox>
                     <MKBox display="flex" color="white" p={1}>
@@ -99,7 +143,7 @@ function Contact() {
                         ml={2}
                         fontWeight="regular"
                       >
-                        hello@creative-tim.com
+                        info@giversdream.org
                       </MKTypography>
                     </MKBox>
                     <MKBox display="flex" color="white" p={1}>
@@ -114,7 +158,7 @@ function Contact() {
                         ml={2}
                         fontWeight="regular"
                       >
-                        Dyonisie Wolf Bucharest, RO 010458
+                        Northridge Coastal Estate, Sunningdale, Cape Town, 7441
                       </MKTypography>
                     </MKBox>
                     <MKBox mt={3}>
@@ -135,7 +179,7 @@ function Contact() {
                 </MKBox>
               </Grid>
               <Grid item xs={12} lg={7}>
-                <MKBox component="form" p={2} method="post">
+                <MKBox component="form" p={2} ref={formRef} onSubmit={sendEmail}>
                   <MKBox px={3} py={{ xs: 2, sm: 6 }}>
                     <MKTypography variant="h2" mb={1}>
                       Say Hi!
@@ -176,6 +220,10 @@ function Contact() {
                         />
                       </Grid>
                     </Grid>
+                    <ReCAPTCHA
+                      sitekey="6Lek5s0qAAAAAFDV4oBGxbVJ3ASGlMBZcYFQVgiw" // Replace with your actual site key
+                      onChange={handleCaptchaChange}
+                    />
                     <Grid
                       container
                       item
