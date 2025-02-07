@@ -4,16 +4,12 @@
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
+* Copyright 2023 Creative Tim
+* Coded by www.creative-tim.com
 
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+* Customized for Givers Dream by [Your Name/Team]
 */
 
-// @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
@@ -23,21 +19,22 @@ import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import MKButton from "components/MKButton";
 
-// Material Kit 2 React examples
+// Navbar and Footer
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import DefaultFooter from "examples/Footers/DefaultFooter";
+import footerRoutes from "footer.routes";
 
-// About Us page sections
+// About Us page sections – update these components to include your organisation-specific content
 import Information from "pages/LandingPages/AboutUs/sections/Information";
 import Team from "pages/LandingPages/AboutUs/sections/Team";
-import Featuring from "pages/LandingPages/AboutUs/sections/Featuring";
-import Newsletter from "pages/LandingPages/AboutUs/sections/Newsletter";
+// import Featuring from "pages/LandingPages/AboutUs/sections/Featuring";
+// import Newsletter from "pages/LandingPages/AboutUs/sections/Newsletter";
 
 // Routes
 import routes from "routes";
-import footerRoutes from "footer.routes";
+// import footerRoutes from "footer.routes";
 
-// Images
+// Images – adjust the background image as needed
 import bgImage from "assets/images/schools/4.jpeg";
 
 function AboutUs() {
@@ -47,8 +44,8 @@ function AboutUs() {
         routes={routes}
         action={{
           type: "external",
-          route: "https://www.creative-tim.com/product/material-kit-react",
-          label: "free download",
+          route: "https://giversdream.org/pages/donate",
+          label: "Donate Now",
           color: "default",
         }}
         transparent
@@ -89,17 +86,21 @@ function AboutUs() {
                 },
               })}
             >
-              Work with an amazing design
+              Empowering Girls, Changing Lives
             </MKTypography>
             <MKTypography variant="body1" color="white" opacity={0.8} mt={1} mb={3}>
-              We&apos;re constantly trying to express ourselves and actualize our dreams. If you
-              have the opportunity to play this game
+              At Givers Dream, we provide essential sanitary products, education, and community
+              support to ensure every young girl can thrive with dignity.
             </MKTypography>
-            <MKButton color="default" sx={{ color: ({ palette: { dark } }) => dark.main }}>
-              create account
+            <MKButton
+              color="default"
+              sx={{ color: ({ palette: { dark } }) => dark.main }}
+              href="https://giversdream.org/pages/donate"
+            >
+              Donate Now
             </MKButton>
             <MKTypography variant="h6" color="white" mt={8} mb={1}>
-              Find us on
+              Connect with us
             </MKTypography>
             <MKBox display="flex" justifyContent="center" alignItems="center">
               <MKTypography component="a" variant="body1" color="white" href="#" mr={3}>
@@ -112,7 +113,7 @@ function AboutUs() {
                 <i className="fab fa-twitter" />
               </MKTypography>
               <MKTypography component="a" variant="body1" color="white" href="#">
-                <i className="fab fa-google-plus" />
+                <i className="fab fa-youtube" />
               </MKTypography>
             </MKBox>
           </Grid>
@@ -127,10 +128,11 @@ function AboutUs() {
           boxShadow: ({ boxShadows: { xxl } }) => xxl,
         }}
       >
-        <Information />
+        {/* Update these sections to include detailed information about your mission, team, and impact */}
         <Team />
-        <Featuring />
-        <Newsletter />
+        <Information />
+        {/* <Featuring /> */}
+        {/* <Newsletter /> */}
       </Card>
       <MKBox pt={6} px={1} mt={6}>
         <DefaultFooter content={footerRoutes} />
@@ -138,5 +140,4 @@ function AboutUs() {
     </>
   );
 }
-
 export default AboutUs;

@@ -19,14 +19,15 @@ import Card from "@mui/material/Card";
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
 
-// Material Kit 2 React examples
+// Navbar and Footer
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
-
+import DefaultFooter from "examples/Footers/DefaultFooter";
+import footerRoutes from "footer.routes";
 // Author page sections
-import Profile from "pages/LandingPages/Author/sections/Profile";
-import Posts from "pages/LandingPages/Author/sections/Posts";
-import Contact from "pages/LandingPages/Author/sections/Contact";
-import Footer from "pages/LandingPages/Author/sections/Footer";
+import Profile from "pages/LandingPages/Outreach/sections/Profile";
+import Posts from "pages/LandingPages/Outreach/sections/Posts";
+import Contact from "pages/LandingPages/Outreach/sections/Contact";
+// import Footer from "pages/LandingPages/Outreach/sections/Footer";
 
 // Routes
 import routes from "routes";
@@ -34,15 +35,15 @@ import routes from "routes";
 // Images
 import bgImage from "assets/images/city-profile.jpg";
 
-function Author() {
+function Outreach() {
   return (
     <>
       <DefaultNavbar
         routes={routes}
         action={{
           type: "external",
-          route: "https://www.creative-tim.com/product/material-kit-react",
-          label: "free download",
+          route: "#",
+          label: "Donate",
           color: "info",
         }}
         transparent
@@ -79,10 +80,12 @@ function Author() {
           <Posts />
         </Card>
         <Contact />
-        <Footer />
+        <MKBox pt={6} px={1} mt={6}>
+          <DefaultFooter content={footerRoutes} />
+        </MKBox>
       </MKBox>
     </>
   );
 }
 
-export default Author;
+export default Outreach;

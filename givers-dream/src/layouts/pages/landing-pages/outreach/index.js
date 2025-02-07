@@ -14,8 +14,8 @@ Coded by www.creative-tim.com
 */
 
 // Material Kit 2 React pages
-import Author from "pages/LandingPages/Author";
+import Outreach from "pages/LandingPages/Outreach";
 
-export default function AuthorPage() {
-  return <Author />;
+export default function OutreachPage() {
+  return <Outreach />;
 }
